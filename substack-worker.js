@@ -32,8 +32,8 @@ export default {
 };
 
 async function syncSubstack(env) {
-  const rssUrl = 'https://seanhhl.substack.com/feed';
-  const repo = 'seanhhl/NYCU-Comedy-Club-Website';
+  const rssUrl = 'https://nycucomedy.substack.com/feed';
+  const repo = 'nycucomedyclub/NYCU-Comedy-Club-Website';
   const token = env.GITHUB_TOKEN;
 
   if (!token) {
@@ -48,7 +48,9 @@ async function syncSubstack(env) {
   // Normal RSS feeds cache for about 5 minutes, which is perfectly fine for our hourly cron job.)
   const rssRes = await fetch(rssUrl, {
     headers: { 
-      'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36'
+      // Substack (Cloudflare) 容易阻擋 Worker 的一般請求，改用 Googlebot 或 RSS Reader 的 User-Agent 來繞過
+      'User-Agent': 'Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)',
+      'Accept': 'application/rss+xml, application/xml, text/xml, */*'
     }
   });
   const rssText = await rssRes.text();
