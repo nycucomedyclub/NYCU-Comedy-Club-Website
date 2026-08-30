@@ -2,7 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import { getCollection, render } from 'astro:content';
 
-const title = '交大貢丸喜劇社';
+const title = '交大貢丸喜劇社 NYCU Comedy Club';
 const intro = '歡迎來到我們的官方網站。在這裡，我們用幽默點亮校園。';
 const announcementsHeading = '最新公告';
 
@@ -109,7 +109,7 @@ const renderedAnnouncements = await Promise.all(allAnnouncements.map(async (ann)
     max-width: 100%;
     object-fit: contain;
     filter: drop-shadow(0 0 40px rgba(125, 211, 252, 0.6));
-    animation: float 6s ease-in-out infinite;
+    animation: hero-float 6s ease-in-out infinite;
   }
   
   .reviews-stack {
@@ -187,7 +187,7 @@ const renderedAnnouncements = await Promise.all(allAnnouncements.map(async (ann)
     font-weight: bold;
   }
   
-  @keyframes float {
+  @keyframes hero-float {
     0% { transform: translateY(0px); }
     50% { transform: translateY(-10px); }
     100% { transform: translateY(0px); }
