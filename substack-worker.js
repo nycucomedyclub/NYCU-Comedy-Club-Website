@@ -32,8 +32,8 @@ export default {
 };
 
 async function syncSubstack(env) {
-  const rssUrl = 'https://seanhhl.substack.com/feed';
-  const repo = 'seanhhl/NYCU-Comedy-Club-Website';
+  const rssUrl = 'https://nycucomedy.substack.com/feed';
+  const repo = 'nycucomedyclub/NYCU-Comedy-Club-Website';
   const token = env.GITHUB_TOKEN;
 
   if (!token) {
