@@ -2,7 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import { getCollection, render } from 'astro:content';
 
-const title = '關於我們';
+const title = '認識我們';
 
 const allFaq = await getCollection('faq') || [];
 allFaq.sort((a, b) => (a.data.order || 0) - (b.data.order || 0));
@@ -18,7 +18,7 @@ const renderedTeam = await Promise.all(allTeam.map(async (member) => {
 <Layout title={title}>
   <header class="page-header">
     <h1>{title}</h1>
-    <p class="subtitle">認識我們，了解我們在做什麼。</p>
+    <p class="subtitle">任何其他疑問都歡迎在社群提出。</p>
   </header>
   
   <section class="content-section">

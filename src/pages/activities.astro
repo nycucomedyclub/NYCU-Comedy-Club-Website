@@ -2,7 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import { getCollection } from 'astro:content';
 
-const title = '活動歷程';
+const title = '社團計劃';
 
 const allTimeline = await getCollection('timeline');
 allTimeline.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());

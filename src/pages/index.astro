@@ -3,7 +3,7 @@ import Layout from '../layouts/Layout.astro';
 import { getCollection, render } from 'astro:content';
 
 const title = '交大貢丸喜劇社 NYCU Comedy Club';
-const intro = '歡迎來到我們的官方網站。在這裡，我們用幽默點亮校園。';
+const intro = '歡迎來到我們的官方網站。在這裡，我們嘗試用幽默點亮校園。最近我們考慮使用燈泡。';
 const announcementsHeading = '最新公告';
 
 const allAnnouncements = await getCollection('announcements');
@@ -26,17 +26,17 @@ const renderedAnnouncements = await Promise.all(allAnnouncements.map(async (ann)
           <div class="joke-review card-1">
             <div class="stars">★☆☆☆☆</div>
             <p>"我給六顆星，這是多出來的那顆"</p>
-            <span class="author">— 算術大師</span>
+            <span class="author">— 清大喜劇社前社長</span>
           </div>
           <div class="joke-review card-2">
             <div class="stars">★★★★★</div>
-            <p>"他們很好笑，真的"</p>
-            <span class="author">— 媽媽</span>
+            <p>"急!剛才有人說給五星可以領貢丸，但他去倉庫之後就沒回來了"</p>
+            <span class="author">— Alvin</span>
           </div>
           <div class="joke-review card-3">
             <div class="stars">★★★★★</div>
-            <p>"剛才有人說給五星可以領貢丸"</p>
-            <span class="author">— Alvin</span>
+            <p>"老實說一句，接觸到貢丸喜劇社的瞬間，我就知道下一個顛覆圈子的是誰"</p>
+            <span class="author">— 博恩<span class="author-note">的長期觀眾</span></span>
           </div>
         </div>
       </div>
@@ -114,7 +114,7 @@ const renderedAnnouncements = await Promise.all(allAnnouncements.map(async (ann)
   
   .reviews-stack {
     position: relative;
-    width: 380px;
+    width: 440px; /* Increased from 380px */
     height: 160px;
     margin-top: 1rem;
     display: flex;
@@ -125,14 +125,14 @@ const renderedAnnouncements = await Promise.all(allAnnouncements.map(async (ann)
     position: absolute;
     top: 0;
     left: 50%;
-    margin-left: -140px; /* half of 280px max-width */
+    margin-left: -170px; /* half of 340px max-width */
     width: 100%;
     background: var(--surface-card);
     border-radius: 16px;
     padding: 1rem 1.5rem;
     box-shadow: 0 8px 30px rgba(0,0,0,0.5);
     border: 1px solid rgba(255,255,255,0.05);
-    max-width: 280px;
+    max-width: 340px; /* Increased from 280px */
     text-align: center;
     transition: transform 0.3s ease, z-index 0s, box-shadow 0.3s ease;
     /* initial state via css variables */
@@ -186,6 +186,13 @@ const renderedAnnouncements = await Promise.all(allAnnouncements.map(async (ann)
     color: var(--text-muted);
     font-weight: bold;
   }
+
+  .joke-review .author-note {
+    font-size: 0.6rem;
+    font-weight: normal;
+    opacity: 0.7;
+    margin-left: 0.2rem;
+  }
   
   @keyframes hero-float {
     0% { transform: translateY(0px); }
@@ -194,7 +201,7 @@ const renderedAnnouncements = await Promise.all(allAnnouncements.map(async (ann)
   }
 
   .hero .subtitle {
-    font-size: 1.75rem;
+    font-size: 1.3rem;
     color: var(--text-muted);
   }
 
@@ -319,14 +326,14 @@ const renderedAnnouncements = await Promise.all(allAnnouncements.map(async (ann)
     }
     
     .hero h1 {
-      font-size: 3.5rem;
+      font-size: 4.5rem;
       text-align: center;
     }
     
     .hero-logo {
       height: auto;
       width: 100%;
-      max-width: 250px;
+      max-width: 300px;
     }
     
     .reviews-stack {
@@ -336,15 +343,15 @@ const renderedAnnouncements = await Promise.all(allAnnouncements.map(async (ann)
   
   @media (max-width: 480px) {
     .hero h1 {
-      font-size: 2.5rem;
+      font-size: 3.5rem;
     }
     
     .hero-logo {
-      max-width: 200px;
+      max-width: 260px;
     }
     
     .reviews-stack {
-      transform: scale(0.7);
+      transform: scale(0.75);
     }
   }
 </style>
