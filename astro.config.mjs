@@ -1,6 +1,9 @@
 import { defineConfig } from 'astro/config';
 
+import sitemap from '@astrojs/sitemap';
+
 // https://astro.build/config
 export default defineConfig({
-  site: 'http://comedy.nycu.cc',
+  site: 'https://comedy.nycu.cc',
+  integrations: [sitemap()],
 });

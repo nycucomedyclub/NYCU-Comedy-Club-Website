@@ -1,0 +1,5 @@
+url: "https://comedy.nycu.cc"
+baseurl: ""  
+
+plugins:
+  - jekyll-sitemap
