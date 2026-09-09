@@ -41,18 +41,22 @@ allTimeline.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
                 </div>
               )}
               
-              {event.data.speaker && (
-                <div class="speaker-card">
-                  {event.data.speaker.photo && (
-                    <div class="avatar-ring">
-                      <img class="avatar" src={event.data.speaker.photo} alt={event.data.speaker.name} loading="lazy" />
+              {event.data.speakers && event.data.speakers.length > 0 && (
+                <div class="speakers-list">
+                  {event.data.speakers.map(speaker => (
+                    <div class="speaker-card">
+                      {speaker.photo && (
+                        <div class="avatar-ring">
+                          <img class="avatar" src={speaker.photo} alt={speaker.name || 'Speaker'} loading="lazy" />
+                        </div>
+                      )}
+                      <div class="speaker-info">
+                        {speaker.name && <h4>{speaker.name}</h4>}
+                        {speaker.role && <p class="role">{speaker.role}</p>}
+                        {speaker.bio && <p class="bio">{speaker.bio}</p>}
+                      </div>
                     </div>
-                  )}
-                  <div class="speaker-info">
-                    <h4>{event.data.speaker.name}</h4>
-                    {event.data.speaker.role && <p class="role">{event.data.speaker.role}</p>}
-                    {event.data.speaker.bio && <p class="bio">{event.data.speaker.bio}</p>}
-                  </div>
+                  ))}
                 </div>
               )}
             </div>
@@ -186,6 +190,7 @@ allTimeline.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
     color: var(--text-muted);
     line-height: 1.6;
     margin-bottom: 1.5rem;
+    white-space: pre-line;
   }
 
   /* Gallery */
@@ -255,6 +260,7 @@ allTimeline.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
     font-size: 0.9rem;
     line-height: 1.5;
     margin: 0;
+    white-space: pre-line;
   }
 
   @media (max-width: 768px) {
